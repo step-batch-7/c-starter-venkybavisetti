@@ -9,6 +9,7 @@ int gcd(int, int);
 long int lcm(int, int);
 float calculate_SI(float principle, float interest, float period);
 float calculate_CI(float principle, float interest, float period);
+float fahrenheit_to_centigrade(float fahrenheit);
 
 unsigned char is_even(int num)
 {
@@ -57,10 +58,15 @@ float calculate_CI(float principle, float interest, float period)
   return principle * pow((1 + interest / 100), period) - principle;
 }
 
+float fahrenheit_to_centigrade(float fahrenheit)
+{
+  return ((fahrenheit - 32) * 5) / 9;
+}
+
 int main(void)
 {
   int even, odd, sqr, cub, gcd1, gcd2, lcm1, lcm2;
-  float principal, interest, period;
+  float principal, interest, period, fahrenheit;
 
   printf("Finding Even number\n");
   printf("Enter number: ");
@@ -101,6 +107,11 @@ int main(void)
   printf("Enter Principal, Interest, Period(separating by space): ");
   scanf("%f%f%f", &principal, &interest, &period);
   printf("Compound Interest of %.2f at %.0f%%/year for %.0f year(s) is: %.2f\n", principal, interest, period, calculate_CI(principal, interest, period));
+
+  printf("convert temperature from fahrenheit to celsius\n");
+  printf("Enter temperature in Fahrenheit: ");
+  scanf("%f", &fahrenheit);
+  printf("%.2f Fahrenheit = %.2f Celsius", fahrenheit, fahrenheit_to_centigrade(fahrenheit));
 
   return 0;
 }
