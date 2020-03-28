@@ -39,9 +39,14 @@ int gcd(int num1, int num2)
   return gcd(divisor, remainder);
 }
 
+long int lcm(int num1, int num2)
+{
+  return (num1 * num2) / gcd(num1, num2);
+}
+
 int main(void)
 {
-  int even, odd, sqr, cub, gcd1, gcd2;
+  int even, odd, sqr, cub, gcd1, gcd2, lcm1, lcm2;
 
   printf("Finding Even number\n");
   printf("Enter number: ");
@@ -67,6 +72,11 @@ int main(void)
   printf("Enter Two numbers(separating by space): ");
   scanf("%d%d", &gcd1, &gcd2);
   printf("GCD of %d and %d is %d\n\n", gcd1, gcd2, gcd(gcd1, gcd2));
+
+  printf("Finding LCM of Two numbers\n");
+  printf("Enter Two numbers(separating by space): ");
+  scanf("%d%d", &lcm1, &lcm2);
+  printf("LCM of %d and %d is %ld\n\n", lcm1, lcm2, lcm(lcm1, lcm2));
 
   return 0;
 }
