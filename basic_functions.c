@@ -12,6 +12,7 @@ float calculate_CI(float principle, float interest, float period);
 float fahrenheit_to_centigrade(float fahrenheit);
 float centigrade_to_fahrenheit(float centigrade);
 int greatest_of_three(int num1, int num2, int num3);
+float average_of_three(int num1, int num2, int num3);
 
 unsigned char is_even(int num)
 {
@@ -75,6 +76,11 @@ int greatest_of_three(int num1, int num2, int num3)
   return fmax(fmax(num1, num2), num3);
 }
 
+float average_of_three(int num1, int num2, int num3)
+{
+  return (num1 + num2 + num3) / 3;
+}
+
 int main(void)
 {
   int num1, num2, num3;
@@ -134,6 +140,11 @@ int main(void)
   printf("Enter First, Second, Third numbers(separating by space): ");
   scanf("%d%d%d", &num1, &num2, &num3);
   printf("The Greatest among the %d, %d and %d is: %d\n\n", num1, num2, num3, greatest_of_three(num1, num2, num3));
+
+  printf("Finding Average of three numbers\n");
+  printf("Enter First, Second, Third numbers(separating by space): ");
+  scanf("%d%d%d", &num1, &num2, &num3);
+  printf("The Average of %d, %d and %d is: %.2f\n\n", num1, num2, num3, average_of_three(num1, num2, num3));
 
   return 0;
 }
