@@ -6,6 +6,8 @@ unsigned char is_odd(int);
 long square(int);
 long cube(int);
 int gcd(int, int);
+long int lcm(int, int);
+float calculate_SI(float principle, float interest, float period);
 
 unsigned char is_even(int num)
 {
@@ -44,9 +46,15 @@ long int lcm(int num1, int num2)
   return (num1 * num2) / gcd(num1, num2);
 }
 
+float calculate_SI(float principle, float interest, float period)
+{
+  return (principle * interest * period) / 100;
+}
+
 int main(void)
 {
   int even, odd, sqr, cub, gcd1, gcd2, lcm1, lcm2;
+  float principal, interest, period;
 
   printf("Finding Even number\n");
   printf("Enter number: ");
@@ -77,6 +85,11 @@ int main(void)
   printf("Enter Two numbers(separating by space): ");
   scanf("%d%d", &lcm1, &lcm2);
   printf("LCM of %d and %d is %ld\n\n", lcm1, lcm2, lcm(lcm1, lcm2));
+
+  printf("Finding Simple Interest\n");
+  printf("Enter Principal, Interest, Period(separating by space): ");
+  scanf("%f%f%f", &principal, &interest, &period);
+  printf("Simple Interest of %.2f at %.0f%%/year for %.0f year(s) is: %.2f\n", principal, interest, period, calculate_SI(principal, interest, period));
 
   return 0;
 }
