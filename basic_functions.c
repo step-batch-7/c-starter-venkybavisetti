@@ -11,6 +11,7 @@ float calculate_SI(float principle, float interest, float period);
 float calculate_CI(float principle, float interest, float period);
 float fahrenheit_to_centigrade(float fahrenheit);
 float centigrade_to_fahrenheit(float centigrade);
+int greatest_of_three(int num1, int num2, int num3);
 
 unsigned char is_even(int num)
 {
@@ -69,9 +70,14 @@ float centigrade_to_fahrenheit(float centigrade)
   return ((centigrade * 9) / 5) + 32;
 }
 
+int greatest_of_three(int num1, int num2, int num3)
+{
+  return fmax(fmax(num1, num2), num3);
+}
+
 int main(void)
 {
-  int num1, num2;
+  int num1, num2, num3;
   float principal, interest, period, temperature;
 
   printf("Finding Even number\n");
@@ -123,6 +129,11 @@ int main(void)
   printf("Enter temperature in celsius: ");
   scanf("%f", &temperature);
   printf("%.2f Celsius  = %.2f Fahrenheit\n\n", temperature, centigrade_to_fahrenheit(temperature));
+
+  printf("Finding Greatest of three numbers\n");
+  printf("Enter First, Second, Third numbers(separating by space): ");
+  scanf("%d%d%d", &num1, &num2, &num3);
+  printf("The Greatest among the %d, %d and %d is: %d\n\n", num1, num2, num3, greatest_of_three(num1, num2, num3));
 
   return 0;
 }
