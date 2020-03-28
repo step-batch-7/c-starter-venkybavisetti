@@ -8,6 +8,7 @@ long cube(int);
 int gcd(int, int);
 long int lcm(int, int);
 float calculate_SI(float principle, float interest, float period);
+float calculate_CI(float principle, float interest, float period);
 
 unsigned char is_even(int num)
 {
