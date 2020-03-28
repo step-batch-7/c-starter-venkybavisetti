@@ -10,6 +10,7 @@ long int lcm(int, int);
 float calculate_SI(float principle, float interest, float period);
 float calculate_CI(float principle, float interest, float period);
 float fahrenheit_to_centigrade(float fahrenheit);
+float centigrade_to_fahrenheit(float centigrade);
 
 unsigned char is_even(int num)
 {
@@ -63,10 +64,15 @@ float fahrenheit_to_centigrade(float fahrenheit)
   return ((fahrenheit - 32) * 5) / 9;
 }
 
+float centigrade_to_fahrenheit(float centigrade)
+{
+  return ((centigrade * 9) / 5) + 32;
+}
+
 int main(void)
 {
   int even, odd, sqr, cub, gcd1, gcd2, lcm1, lcm2;
-  float principal, interest, period, fahrenheit;
+  float principal, interest, period, fahrenheit, centigrade;
 
   printf("Finding Even number\n");
   printf("Enter number: ");
@@ -101,17 +107,22 @@ int main(void)
   printf("Finding Simple Interest\n");
   printf("Enter Principal, Interest, Period(separating by space): ");
   scanf("%f%f%f", &principal, &interest, &period);
-  printf("Simple Interest of %.2f at %.0f%%/year for %.0f year(s) is: %.2f\n", principal, interest, period, calculate_SI(principal, interest, period));
+  printf("Simple Interest of %.2f at %.0f%%/year for %.0f year(s) is: %.2f\n\n", principal, interest, period, calculate_SI(principal, interest, period));
 
   printf("Finding Compound Interest\n");
   printf("Enter Principal, Interest, Period(separating by space): ");
   scanf("%f%f%f", &principal, &interest, &period);
-  printf("Compound Interest of %.2f at %.0f%%/year for %.0f year(s) is: %.2f\n", principal, interest, period, calculate_CI(principal, interest, period));
+  printf("Compound Interest of %.2f at %.0f%%/year for %.0f year(s) is: %.2f\n\n", principal, interest, period, calculate_CI(principal, interest, period));
 
   printf("convert temperature from fahrenheit to celsius\n");
   printf("Enter temperature in Fahrenheit: ");
   scanf("%f", &fahrenheit);
-  printf("%.2f Fahrenheit = %.2f Celsius", fahrenheit, fahrenheit_to_centigrade(fahrenheit));
+  printf("%.2f Fahrenheit = %.2f Celsius\n\n", fahrenheit, fahrenheit_to_centigrade(fahrenheit));
+
+  printf("convert temperature from celsius to fahrenheit\n");
+  printf("Enter temperature in celsius: ");
+  scanf("%f", &centigrade);
+  printf("%.2f Celsius  = %.2f Fahrenheit\n\n", centigrade, centigrade_to_fahrenheit(centigrade));
 
   return 0;
 }
