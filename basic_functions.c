@@ -51,6 +51,11 @@ float calculate_SI(float principle, float interest, float period)
   return (principle * interest * period) / 100;
 }
 
+float calculate_CI(float principle, float interest, float period)
+{
+  return principle * pow((1 + interest / 100), period) - principle;
+}
+
 int main(void)
 {
   int even, odd, sqr, cub, gcd1, gcd2, lcm1, lcm2;
@@ -90,6 +95,11 @@ int main(void)
   printf("Enter Principal, Interest, Period(separating by space): ");
   scanf("%f%f%f", &principal, &interest, &period);
   printf("Simple Interest of %.2f at %.0f%%/year for %.0f year(s) is: %.2f\n", principal, interest, period, calculate_SI(principal, interest, period));
+
+  printf("Finding Compound Interest\n");
+  printf("Enter Principal, Interest, Period(separating by space): ");
+  scanf("%f%f%f", &principal, &interest, &period);
+  printf("Compound Interest of %.2f at %.0f%%/year for %.0f year(s) is: %.2f\n", principal, interest, period, calculate_CI(principal, interest, period));
 
   return 0;
 }
