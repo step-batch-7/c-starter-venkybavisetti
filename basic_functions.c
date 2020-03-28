@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <math.h>
 
 unsigned char is_even(int);
 unsigned char is_odd(int);
 long square(int);
 long cube(int);
+int gcd(int, int);
 
 unsigned char is_even(int num)
 {
@@ -25,9 +27,21 @@ long cube(int num)
   return num * square(num);
 }
 
+int gcd(int num1, int num2)
+{
+  int divident = fmax(num1, num2);
+  int divisor = fmin(num1, num2);
+  int remainder = divident % divisor;
+  if (!remainder)
+  {
+    return divisor;
+  }
+  return gcd(divisor, remainder);
+}
+
 int main(void)
 {
-  int even, odd, sqr, cub;
+  int even, odd, sqr, cub, gcd1, gcd2;
 
   printf("Finding Even number\n");
   printf("Enter number: ");
@@ -48,6 +62,11 @@ int main(void)
   printf("Enter number: ");
   scanf("%d", &cub);
   printf("Cube of %d is %ld\n\n", cub, cube(cub));
+
+  printf("Finding GCD of Two numbers\n");
+  printf("Enter Two numbers(separating by space): ");
+  scanf("%d%d", &gcd1, &gcd2);
+  printf("GCD of %d and %d is %d\n\n", gcd1, gcd2, gcd(gcd1, gcd2));
 
   return 0;
 }
