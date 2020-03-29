@@ -39,6 +39,18 @@ unsigned int odd_number_series(int number)
   return 0;
 }
 
+unsigned int even_number_series(int number)
+{
+  for (int index = 0; index <= number; index++)
+  {
+    if (index % 2 == 0)
+    {
+      printf("%d\n", index);
+    }
+  }
+  return 0;
+}
+
 int main(void)
 {
   int num1;
@@ -58,6 +70,12 @@ int main(void)
   printf("Enter number: ");
   scanf("%d", &num1);
   odd_number_series(num1);
+  printf("\n");
+
+  printf("Finding Even Number Series of an number\n");
+  printf("Enter number: ");
+  scanf("%d", &num1);
+  even_number_series(num1);
   printf("\n");
 
   return 0;
