@@ -2,7 +2,9 @@
 
 unsigned long int factorial(int number);
 int fibonacci(int number);
-unsigned int odd_number_series(int number);
+int odd_number_series(int number);
+int even_number_series(int number);
+int multiplication_table(int multiplier, unsigned int range);
 
 unsigned long int factorial(int number)
 {
@@ -27,7 +29,7 @@ int fibonacci(int number)
   return 0;
 }
 
-unsigned int odd_number_series(int number)
+int odd_number_series(int number)
 {
   for (int index = 0; index <= number; index++)
   {
@@ -39,7 +41,7 @@ unsigned int odd_number_series(int number)
   return 0;
 }
 
-unsigned int even_number_series(int number)
+int even_number_series(int number)
 {
   for (int index = 0; index <= number; index++)
   {
@@ -51,9 +53,20 @@ unsigned int even_number_series(int number)
   return 0;
 }
 
+int multiplication_table(int multiplier, unsigned int range)
+{
+  for (int index = 0; index <= range; index++)
+  {
+    int result = multiplier * index;
+    printf("%d*%d = %d\n", multiplier, index, result);
+  }
+  return 0;
+}
+
 int main(void)
 {
   int num1;
+  unsigned int range;
 
   printf("Finding Factorial of an number\n");
   printf("Enter number: ");
@@ -76,6 +89,12 @@ int main(void)
   printf("Enter number: ");
   scanf("%d", &num1);
   even_number_series(num1);
+  printf("\n");
+
+  printf("Finding Multiplication Table\n");
+  printf("Enter Multiplier number and range(separating by space): ");
+  scanf("%d%d", &num1, &range);
+  multiplication_table(num1, range);
   printf("\n");
 
   return 0;
