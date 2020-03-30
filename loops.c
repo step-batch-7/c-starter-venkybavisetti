@@ -6,6 +6,8 @@ int fibonacci(int number);
 int odd_number_series(int number);
 int even_number_series(int number);
 int multiplication_table(int multiplier, unsigned int range);
+long int sum_of_any_n_numbers(int num1, int num2);
+long int product_of_any_n_numbers(int num1, int num2);
 
 unsigned long int factorial(int number)
 {
@@ -88,6 +90,20 @@ long int product_of_any_n_numbers(int num1, int num2)
   return product;
 }
 
+int odd_number_series_bw_ranges(int num1, int num2)
+{
+  int starting_range = fmin(num1, num2);
+  int ending_range = fmax(num1, num2);
+  for (int index = starting_range; index <= ending_range; index++)
+  {
+    if (index % 2 == 1)
+    {
+      printf("%d\n", index);
+    }
+  }
+  return 0;
+}
+
 int main(void)
 {
   int num1, num2;
@@ -131,6 +147,13 @@ int main(void)
   printf("Enter the starting and ending range for Product of numbers(separating by space): ");
   scanf("%d%d", &num1, &num2);
   printf("The Product of numbers between %d and %d is: %ld\n\n", num1, num2, product_of_any_n_numbers(num1, num2));
+
+  printf("Printing all odd numbers between any two numbers\n");
+  printf("Enter the starting and ending range for odd numbers(separating by space): ");
+  scanf("%d%d", &num1, &num2);
+  printf("The odd numbers between %d and %d is: \n", num1, num2);
+  odd_number_series_bw_ranges(num1, num2);
+  printf("\n");
 
   return 0;
 }
