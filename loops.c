@@ -116,13 +116,26 @@ int every_nth_number_bw_numbers(unsigned int nth_num, int num1, int num2)
   return 0;
 }
 
-int even_number_series_bw_ranges(int num1, int num2)
+long int sum_of_even_numbers(int num1, int num2)
 {
   int starting_range = fmin(num1, num2);
   int ending_range = fmax(num1, num2);
+  long int sum = 0;
   for (int index = starting_range; index <= ending_range; index++)
   {
     if (index % 2 == 0)
+    {
+      sum += index;
+    }
+  }
+  return sum;
+}
+
+int odd_number_series_backwards(int number)
+{
+  for (int index = number; index >= 1; index--)
+  {
+    if (index % 2 == 1)
     {
       printf("%d\n", index);
     }
@@ -188,11 +201,16 @@ int main(void)
   every_nth_number_bw_numbers(range, num1, num2);
   printf("\n");
 
-  printf("Printing all even numbers between any two numbers\n");
+  printf("Sum of all even numbers between any two numbers\n");
   printf("Enter the starting and ending range(separating by space): ");
   scanf("%d%d", &num1, &num2);
-  printf("The even numbers between %d and %d is: \n", num1, num2);
-  even_number_series_bw_ranges(num1, num2);
+  printf("The sum of even numbers between %d and %d is: %ld\n\n", num1, num2, sum_of_even_numbers(num1, num2));
+
+  printf("Print all odd numbers between N and 1 backwards\n");
+  printf("Enter number: ");
+  scanf("%d", &num1);
+  printf("The odd numbers between %d and %d is: \n", num1, num2);
+  odd_number_series_backwards(num1);
   printf("\n");
 
   return 0;
