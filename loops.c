@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 unsigned long int factorial(int number);
 int fibonacci(int number);
@@ -63,7 +64,7 @@ int multiplication_table(int multiplier, unsigned int range)
   return 0;
 }
 
-long int athematic_progration(int num1, int num2)
+long int sum_of_any_n_numbers(int num1, int num2)
 {
   int starting_range = fmin(num1, num2);
   int ending_range = fmax(num1, num2);
@@ -73,6 +74,18 @@ long int athematic_progration(int num1, int num2)
     sum += number;
   }
   return sum;
+}
+
+long int product_of_any_n_numbers(int num1, int num2)
+{
+  int starting_range = fmin(num1, num2);
+  int ending_range = fmax(num1, num2);
+  long int product = 1;
+  for (int number = starting_range; number <= ending_range; number++)
+  {
+    product = product * number;
+  }
+  return product;
 }
 
 int main(void)
@@ -112,7 +125,12 @@ int main(void)
   printf("Finding Sum of any N numbers\n");
   printf("Enter the starting and ending range for sum of numbers(separating by space): ");
   scanf("%d%d", &num1, &num2);
-  printf("The Sum of numbers between %d and %d is: %ld\n\n", num1, num2, athematic_progration(num1, num2));
+  printf("The Sum of numbers between %d and %d is: %ld\n\n", num1, num2, sum_of_any_n_numbers(num1, num2));
+
+  printf("Finding Product of any N numbers\n");
+  printf("Enter the starting and ending range for Product of numbers(separating by space): ");
+  scanf("%d%d", &num1, &num2);
+  printf("The Product of numbers between %d and %d is: %ld\n\n", num1, num2, product_of_any_n_numbers(num1, num2));
 
   return 0;
 }
