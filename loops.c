@@ -8,6 +8,10 @@ int even_number_series(int number);
 int multiplication_table(int multiplier, unsigned int range);
 long int sum_of_any_n_numbers(int num1, int num2);
 long int product_of_any_n_numbers(int num1, int num2);
+int odd_number_series_bw_ranges(int num1, int num2);
+int every_nth_number_bw_numbers(unsigned int nth_num, int num1, int num2);
+long int sum_of_even_numbers(int num1, int num2);
+int odd_number_series_backwards(int number);
 
 unsigned long int factorial(int number)
 {
