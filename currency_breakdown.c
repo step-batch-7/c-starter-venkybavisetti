@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 
+int currency_breakdown(unsigned int amount);
+unsigned int give_particular_note(unsigned int balance, int note_value);
+
 unsigned int give_particular_note(unsigned int balance, int note_value)
 {
   int no_of_notes = floor(balance / note_value);
