@@ -63,9 +63,21 @@ int multiplication_table(int multiplier, unsigned int range)
   return 0;
 }
 
+long int athematic_progration(int num1, int num2)
+{
+  int starting_range = fmin(num1, num2);
+  int ending_range = fmax(num1, num2);
+  long int sum = 0;
+  for (int number = starting_range; number <= ending_range; number++)
+  {
+    sum += number;
+  }
+  return sum;
+}
+
 int main(void)
 {
-  int num1;
+  int num1, num2;
   unsigned int range;
 
   printf("Finding Factorial of an number\n");
@@ -93,9 +105,14 @@ int main(void)
 
   printf("Finding Multiplication Table\n");
   printf("Enter Multiplier number and range(separating by space): ");
-  scanf("%d%d", &num1, &range);
+  scanf("%d%u", &num1, &range);
   multiplication_table(num1, range);
   printf("\n");
+
+  printf("Finding Sum of any N numbers\n");
+  printf("Enter the starting and ending range for sum of numbers(separating by space): ");
+  scanf("%d%d", &num1, &num2);
+  printf("The Sum of numbers between %d and %d is: %ld\n\n", num1, num2, athematic_progration(num1, num2));
 
   return 0;
 }
