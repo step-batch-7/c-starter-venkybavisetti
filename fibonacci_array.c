@@ -3,9 +3,9 @@
 int fibonacci(int number, unsigned long int *fib_series)
 {
   unsigned long int previous_num = 0, present_num = 1;
-  fib_series[0] = 0;
-  fib_series[1] = 0;
-  for (int index = 0; index < number; index++)
+  fib_series[0] = previous_num;
+  fib_series[1] = present_num;
+  for (int index = 0; index < (number - 2); index++)
   {
     present_num += previous_num;
     previous_num = present_num - previous_num;
@@ -20,7 +20,7 @@ int main(void)
   printf("Finding Fibonacci Series of an number\n");
   printf("Enter number: ");
   scanf("%d", &fib_series_num);
-  unsigned long int fib_series[fib_series_num + 2];
+  unsigned long int fib_series[fib_series_num];
   fibonacci(fib_series_num, fib_series);
 
   for (int i = 0; i < (sizeof(fib_series) / sizeof(unsigned long int)); i++)
