@@ -26,8 +26,8 @@ unsigned long int factorial(int number)
 int fibonacci(int number)
 {
   unsigned long int previous_num = 0, present_num = 1;
-  printf("%d\n%d\n", 0, 0);
-  for (int index = number; index > 0; index--)
+  printf("%d\n%d\n", previous_num, present_num);
+  for (int index = number - 2; index > 0; index--)
   {
     present_num += previous_num;
     previous_num = present_num - previous_num;
