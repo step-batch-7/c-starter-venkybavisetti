@@ -1,4 +1,5 @@
 #include <stdio.h>
+int fibonacci(int number, unsigned long int *fib_series);
 
 int fibonacci(int number, unsigned long int *fib_series)
 {
